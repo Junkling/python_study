@@ -65,3 +65,43 @@ print(mul_dict)
 
 a, b, c = func_mul(3)
 print(f'a: {a}, b : {b}, c: {c}')
+
+
+# 튜플형
+def args_func(*args):
+    for i, v in enumerate(args):
+        print(f'result :{i},{v}')
+    print("==============")
+
+
+args_func('helloworld')
+args_func('hello', 'python', '!!')
+
+
+# (언패킹)-> ** 딕셔너리
+def keyword_func(**keyword):
+    for v in keyword.keys():
+        print(f'[keyword] :{v},{keyword[v]}')
+    print("==============")
+
+
+keyword_func(name1='kim')
+keyword_func(name1='kim', name2='na', name3='park', name4='lee')
+
+
+def example(arg1, arg2, *args, **kwargs):
+    print(arg1, arg2, args, kwargs)
+
+
+example(10, 20, 'lee', 'kim', 'park', age0=0, age1=10, age2=20, age3=30)
+
+# 중첩함수
+def nested_func(num):
+    def inner_func(num):
+        print(num)
+    print('in func')
+    inner_func(num + 100)
+
+nested_func(10)
+# 내부 함수는 호출 불가
+# inner_func(10)
